@@ -1,0 +1,17 @@
+model ScholarProfile {
+  id               String    @id @default(uuid())
+  scholarshipFormId String
+  name             String
+  profileImage     String?
+  description      String?
+  enrollmentYear   Int?
+  graduationYear   Int?
+  major            String?
+  university       String?
+  achievements     String?
+  
+  // Relationships
+  scholarshipForm  ScholarshipForm @relation(fields: [scholarshipFormId], references: [id], onDelete: Cascade)
+
+  @@index([scholarshipFormId])
+}

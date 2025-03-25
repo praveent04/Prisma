@@ -1,0 +1,13 @@
+model ScholarshipFormLog {
+  id               String    @id @default(uuid())
+  scholarshipFormId String
+  actionStartDateTime DateTime
+  action           String
+  actionCloseDateTime DateTime?
+  source           String
+  
+  // Relationships
+  scholarshipForm  ScholarshipForm @relation(fields: [scholarshipFormId], references: [id], onDelete: Cascade)
+
+  @@index([scholarshipFormId])
+}

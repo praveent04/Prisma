@@ -1,0 +1,21 @@
+model FAQ {
+  id                String    @id @default(uuid())
+  
+  // Relationships
+  faqItems          FAQItem[]
+  scholarshipForms  ScholarshipForm[]
+  studentTypes      StudentType[]
+}
+
+model FAQItem {
+  id          String    @id @default(uuid())
+  faqId       String
+  questionSeq Int
+  question    String
+  answer      String
+  
+  // Relationships
+  faq         FAQ       @relation(fields: [faqId], references: [id], onDelete: Cascade)
+
+  @@index([faqId])
+}

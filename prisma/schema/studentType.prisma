@@ -1,0 +1,23 @@
+model StudentType {
+  id                    String    @id @default(uuid())
+  studentTypeName       String
+  studentTypeAttributes Json      // Storing flexible attributes 
+  studentTypeNarration  String
+  awardLocalCurrency    String
+  awardAmount           Float
+  managementCostFixed   Float
+  managementCostVariable Float
+  awardUSD              Float
+  managementCostFixedUSD Float
+  disbursementMethod    String
+  fundCustodianPartnerId String
+  fundCustodianPartnerName String
+  fundCustodianUrl      String
+  faqId                 String
+  
+  // Relationships
+  scholarshipForms      ScholarshipForm[]
+  faq                   FAQ       @relation(fields: [faqId], references: [id])
+
+  @@index([faqId])
+}
