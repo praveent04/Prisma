@@ -1,6 +1,6 @@
 model ScholarshipBannerImage {
-  id               String    @id @default(uuid())
-  imageName        String
-  imageUrl         String
-  isActive         Boolean   @default(true)
+  id        String  @id @default(uuid())
+  imageName String
+  imageUrl  String
+  isActive  Boolean @default(true)
 }

@@ -1,12 +1,12 @@
 model ScholarshipPageComment {
-  id               String    @id @default(uuid())
+  id                String   @id @default(uuid())
   scholarshipFormId String
-  commentText      String
-  commentorName    String
-  commentDate      DateTime  @default(now())
-  
+  commentText       String
+  commentorName     String
+  commentDate       DateTime @default(now())
+
   // Relationships
-  scholarshipForm  ScholarshipForm @relation(fields: [scholarshipFormId], references: [id], onDelete: Cascade)
+  scholarshipForm ScholarshipForm @relation(fields: [scholarshipFormId], references: [id], onDelete: Cascade)
 
   @@index([scholarshipFormId])
 }

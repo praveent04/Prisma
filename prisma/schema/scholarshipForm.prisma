@@ -1,66 +1,66 @@
 model ScholarshipForm {
-  id                          String    @id @default(uuid())
-  status                      String    // Created, Preview in Progress, Payment in Progress, Published
-  fdpId                       String
-  scholarshipPageTemplateId   String
-  startDateTime               DateTime
-  studentTypeId               String
-  amountPlan                  String    //  Custom
-  annualSeatAmountCurrency    String
-  annualSeatAmount            Float
-  disbursementMethod          String
-  isMemorial                  Boolean   @default(false)
-  memorialName                String?
-  memorialBirthDate           DateTime?
-  memorialDeathDate           DateTime?
-  creatorName                 String
-  creatorUserLoginId          String
-  scholarshipName             String
-  creatorLinkedInUrl          String?
-  creatorNameInput            String?
-  scholarshipSubheading       String?
-  scholarshipHeroImage        String?
-  seatCount                   Int       @default(1)
-  totalManagementCostFixed    Float
-  totalManagementCostVariable Float
-  totalAnnualBudget           Float
-  contributeButtonVisible     Boolean   @default(false)
-  applyButtonVisible          Boolean   @default(false)
-  memorialSectionVisible      Boolean
-  memorialHeader              String?
-  memorialSubheader           String?
-  memorialPhoto               String?
-  scholarshipFounderVisible   Boolean   @default(true)
-  scholarshipFounderHeader    String?
-  scholarshipFounderSubheader String?
-  scholarshipFounderImage     String?
-  scholarshipFounderLinkedIn  String?
+  id                            String    @id @default(uuid())
+  status                        String // Created, Preview in Progress, Payment in Progress, Published
+  fdpId                         String
+  scholarshipPageTemplateId     String
+  startDateTime                 DateTime
+  studentTypeId                 String
+  amountPlan                    String //  Custom
+  annualSeatAmountCurrency      String
+  annualSeatAmount              Float
+  disbursementMethod            String
+  isMemorial                    Boolean   @default(false)
+  memorialName                  String?
+  memorialBirthDate             DateTime?
+  memorialDeathDate             DateTime?
+  creatorName                   String
+  creatorUserLoginId            String
+  scholarshipName               String
+  creatorLinkedInUrl            String?
+  creatorNameInput              String?
+  scholarshipSubheading         String?
+  scholarshipHeroImage          String?
+  seatCount                     Int       @default(1)
+  totalManagementCostFixed      Float
+  totalManagementCostVariable   Float
+  totalAnnualBudget             Float
+  contributeButtonVisible       Boolean   @default(false)
+  applyButtonVisible            Boolean   @default(false)
+  memorialSectionVisible        Boolean
+  memorialHeader                String?
+  memorialSubheader             String?
+  memorialPhoto                 String?
+  scholarshipFounderVisible     Boolean   @default(true)
+  scholarshipFounderHeader      String?
+  scholarshipFounderSubheader   String?
+  scholarshipFounderImage       String?
+  scholarshipFounderLinkedIn    String?
   scholarshipFounderDesignation String?
-  scholarshipFounderCompany   String?
-  scholarshipFounderCity      String?
-  scholarshipFounderCountry   String?
-  scholarshipFounderText      String?
-  galleryVisible              Boolean   @default(true)
-  galleryHeader               String?
-  gallerySubheader            String?
-  scholarsVisible             Boolean   @default(true)
-  scholarsHeader              String?
-  scholarsSubheader           String?
-  commentsVisible             Boolean   @default(true)
-  commentsHeader              String?
-  commentsSubheader           String?
-  faqId                       String
-  paymentReference            String?
-  paymentMethod               String?
-  paymentStatus               String?
-  paymentIdentifier           String?
-  
+  scholarshipFounderCompany     String?
+  scholarshipFounderCity        String?
+  scholarshipFounderCountry     String?
+  scholarshipFounderText        String?
+  galleryVisible                Boolean   @default(true)
+  galleryHeader                 String?
+  gallerySubheader              String?
+  scholarsVisible               Boolean   @default(true)
+  scholarsHeader                String?
+  scholarsSubheader             String?
+  commentsVisible               Boolean   @default(true)
+  commentsHeader                String?
+  commentsSubheader             String?
+  faqId                         String
+  paymentReference              String?
+  paymentMethod                 String?
+  paymentStatus                 String?
+  paymentIdentifier             String?
+
   // Relationships
-  studentType                 StudentType @relation(fields: [studentTypeId], references: [id])
-  faq                         FAQ       @relation(fields: [faqId], references: [id])
-  scholarLogs                 ScholarshipFormLog[]
-  comments                    ScholarshipPageComment[]
-  scholarProfiles             ScholarProfile[]
+  studentType     StudentType              @relation(fields: [studentTypeId], references: [id])
+  faq             FAQ                      @relation(fields: [faqId], references: [id])
+  scholarLogs     ScholarshipFormLog[]
+  comments        ScholarshipPageComment[]
+  scholarProfiles ScholarProfile[]
 
   @@index([studentTypeId])
   @@index([faqId])
